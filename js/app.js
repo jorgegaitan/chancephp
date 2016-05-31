@@ -21,6 +21,7 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
   $scope.login=function () {
     var result= authFactory.authUser($scope.cuenta.email,$scope.cuenta.password);
     result.then(function (authData){
+      console.log(authData);
       $state.transitionTo('vendedores.perfil');
       sessionStorage.setItem("Email",$scope.cuenta.email);
     },function (error) {
@@ -41,6 +42,16 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
       nombre: 'Nombre Empleado',
       cargo: 'Cargo Empleado'
     }];
+}]);
+
+app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject','mesajesFactory','UsersFactory', function($scope, $mdBottomSheet, $state, $firebaseObject,mesajesFactory,UsersFactory){
+  $scope.mensaje="";
+  console.log('estoy en el controlador de enviar mensaje');
+    console.log(UsersFactory.getUser(10));
+  $scope.send=function() {
+    console.log('estoy en enviar mensaje');
+      var result=mesajesFactory.addMessage($scope.mensaje);
+  };
 }]);
 
 //CONTROLADOR PRINCIPAL DE LA APLICACION
@@ -167,7 +178,8 @@ app.config(function ($stateProvider,$urlRouterProvider) {
 
     .state('admin.chat', {
       url:'/chats',
-      templateUrl:'view/chat.html'
+      templateUrl:'view/chat.html',
+      controller:'ChatCtrl'
     })
 
     .state('admin.listaLoterias', {

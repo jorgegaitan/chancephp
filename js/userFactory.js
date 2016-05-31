@@ -12,9 +12,10 @@ angular.module('StartedApp').factory('UsersFactory',['$firebaseArray','$firebase
     },
     all:users
   };
-
+  UsersFactory.getUser=function (id) {
+    return $firebaseObject(usersRef.child(id));
+  };
   UsersFactory.addUser=function (usuario) {
-    console.log(usuario.id);
     var user={
       nombre:usuario.nombre,
       apellidos:usuario.apellido,
