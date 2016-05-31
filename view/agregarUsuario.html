@@ -1,0 +1,56 @@
+<md-dialog aria-label="List dialog">
+     <md-dialog-content>
+      <h1>Registrar usuarios</h1>
+       <md-input-container class="md-icon-float md-block">
+
+           <label>Nombre</label>
+           <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+           <input required name="nombre" ng-model="usuario.nombre" >
+       </md-input-container>
+       <md-input-container class="md-icon-float md-block">
+           <md-icon><ng-md-icon icon="vpn_key"></ng-md-icon></md-icon>
+           <label>Apellido</label>
+           <input required name="apellido" ng-model="usuario.apellido">
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+
+        <label>id</label>
+            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+            <input required name="id" ng-model="usuario.id" >
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+
+            <label>correo</label>
+            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+            <input required name="correo" ng-model="usuario.correo" >
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+
+            <label>correo</label>
+            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+            <input required name="correo" ng-model="usuario.password" >
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+
+            <label>Cargo</label>
+            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+            <input required name="cargo" ng-model="usuario.cargo" >
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+
+            <label>Edad</label>
+            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+            <input required name="edad" ng-model="usuario.edad" >
+        </md-input-container>
+
+
+      </md-dialog-content>
+       <md-dialog-actions>
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="addUser()" class="md-primary">
+          Agregar
+         </md-button>
+      </md-dialog-actions>
+     </md-dialog>

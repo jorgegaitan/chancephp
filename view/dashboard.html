@@ -1,0 +1,99 @@
+<div layout="column" layout-fill>
+  <md-toolbar class="md-whiteframe-z2 site-content-toolbar" layout="row">
+    <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+      <ng-md-icon icon="menu"></ng-md-icon>
+    </md-button>
+    <h1 class="md-toolbar-tools">Dashboard</h1>
+  </md-toolbar>
+    <md-content class="md-default-theme" flex md-scroll-y>
+        <div layout="row" class="indicadores md-whiteframe-z2">
+          <div flex layout="column" class="informe">
+            <h2>Transacciones</h2>
+            <h1>400</h1>
+            <label>4% Anterior Semana</label>
+          </div>
+          <div flex layout="column" class="informe">
+            <h2>Dinro de ventas</h2>
+            <h1>3'000.000</h1>
+            <label>4% Anterior Semana</label>
+          </div>
+          <div flex layout="column" class="informe">
+            <h2>Indicador 3</h2>
+            <h1>100000</h1>
+            <label>4% Anterior Semana</label>
+          </div>
+          <div flex layout="column" class="informe">
+            <h2>Indicador 4</h2>
+            <h1>5000</h1>
+            <label>4% Anterior Semana</label>
+          </div>
+        </div>
+        <!--Separador-->
+        <div class="inset"></div>
+        <!--Lista de loterias-->
+          <md-card flex class="md-whiteframe-z1">
+            <div class="cabecera cabeceraDatePicker md-whiteframe-z1" layout="row">
+              <h2>Ventas Realizadas</h2>
+              <span flex></span>
+               <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+            </div>
+            <div layout="row" layout-xs="column" layout-padding>
+              <div flex layout="column" style="box-sizing: border-box">
+                <div class="contendorGraficaDash">
+                  <img src="view/css/imagenes/grafica1.png" style="width:100%">
+                </div>
+                <div  layout-padding layout="row">
+                  <div flex layout="column" class="contenedorGrafSecundarias">
+                    <label>Total 1</label>
+                    <h3>345,908</h3>
+                    <img src="view/css/imagenes/grafica2.png"/>
+                  </div>
+                  <div flex layout="column" class="contenedorGrafSecundarias">
+                      <label>Total 1</label>
+                      <h3>345,908</h3>
+                      <img src="view/css/imagenes/grafica2.png"/>
+                  </div>
+                  <div flex layout="column" class="contenedorGrafSecundarias">
+                      <label>Total 1</label>
+                      <h3>345,908</h3>
+                      <img src="view/css/imagenes/grafica2.png"/>
+                  </div>
+                </div>
+              </div>
+              <div flex="40" flex-xs="100" class="ContenedorTopVendores">
+                <label class="labelHeader">Top Vendedores</label>
+                  <md-list>
+                    <md-list-item class="md-2-line" ng-repeat="item in topEmpleados">
+                      <img ng-src="{{item.foto}}?{{$index}}" class="fotoTopEmpleado">
+                      <div class="md-list-item-text datosTopVendedor">
+                        <h3>{{item.nombre}}</h3>
+                        <h4>{{item.cargo}}</h4>
+                      </div>
+                      <md-divider md-inset ng-if="!$last"></md-divider>
+                    </md-list-item>
+                  </md-list>
+              </div>
+            </div>
+          </md-card>
+        <!--CONTENEDOR DE VENTA-->
+        <br>
+        <div layout="row" layout-xs="column">
+          <md-card flex class="md-whiteframe-z2" style="height:250px">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Top Loterias</h2>
+            </div>
+            <md-card-content>
+            </md-card-content>
+          </md-card>
+
+          <md-card flex class="md-whiteframe-z2">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Grafica 2</h2>
+            </div>
+            <md-card-content>
+            </md-card-content>
+          </md-card>
+
+        </div>
+      </md-content>
+</div>

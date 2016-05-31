@@ -1,0 +1,109 @@
+<div layout="column" layout-fill>
+    <!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar" layout="row">
+      <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+        <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">Perfil</h1>
+    </md-toolbar>
+    <md-content class="md-default-theme" flex md-scroll-y>
+
+        <div layout-padding></div>
+        <!--Lista de loterias-->
+          <md-card flex class="md-whiteframe-z1">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Datos Personales</h2>
+            </div>
+            <div layout="row" layout-padding>
+              <div flex="15" flex-xs="40" class="contenedorImagenPerfil">
+                <img class="imagenPerfil" src="http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_perfil__jouez_by_crizaros-d4trv7k.jpg">
+              </div>
+              <div flex layout="row" hide show-gt-xs>
+
+                <div flex="40" layout="row">
+                  <div flex="40" flex-gt-md="30" layout="column" class="labelBold">
+                    <label>Nombres</label>
+                    <br>
+                    <label>Edad</label>
+                    <br>
+                    <label>Cargo</label>
+                  </div >
+                  <div layout="column">
+                    <label>Jorge</label><br>
+                    <label>20 Años</label><br>
+                    <label>Empleado</label>
+                  </div>
+                </div>
+
+                <div flex layout="row">
+                  <div flex="30" flex-gt-md="20" layout="column" class="labelBold">
+                    <label>Apellidos</label>
+                    <br>
+                    <label>Correo</label>
+                  </div>
+                  <div flex layout="column">
+                    <label>Gaitan Portillo</label><br>
+                    <label>jorgegaitan903@hotmail.com</label><br>
+                  </div>
+                </div>
+              </div>
+              <!-- VSITA PARA RESOLUCION MENOR A 600PX-->
+              <div flex layout="row" hide show-xs>
+                  <div flex="40" flex-gt-md="30" layout="column" class="labelBold">
+                    <label>Nombres</label>
+                    <br>
+                    <label>Apellido</label>
+                    <br>
+                    <label>Edad</label>
+                    <br>
+                    <label>Cargo</label>
+                    <br>
+                    <label>Correo</label>
+                  </div >
+                  <div layout="column">
+                    <label>Jorge</label><br>
+                    <label>Gaitan Portillo</label><br>
+                    <label>20 Años</label><br>
+                    <label>Empleado</label><br>
+                    <label>jorgegaitan903@hotmail.com</label>
+                  </div>
+
+              </div>
+            </div>
+          </md-card>
+        <!--CONTENEDOR DE VENTA-->
+        <div class="inset ContenerdorCupon" layout="row" layout-xs="column">
+
+          <md-card flex class="md-whiteframe-z2 ">
+            <md-toolbar class="toolbarCabecera md-whiteframe-z2 site-content-toolbar">
+              <div class="cabeceraToolbar  md-toolbar-tools">
+                 <h2>Estadisticas de Ventas</h2>
+              </div>
+              <md-tabs md-stretch-tabs="always" md-selected="data.selectedIndex">
+                <md-tab class="grafBarras" aria-controls="graf-barras" flex>
+                     <ng-md-icon icon="equalizer" size="32"></ng-md-icon>
+                </md-tab>
+                <md-tab class="grafLinea" aria-controls="graf-linea" flex>
+                    <ng-md-icon icon="pie_chart" size="32"></ng-md-icon>
+                </md-tab>
+                <md-tab class="grafPastel" aria-controls="graf-pastel">
+                    <ng-md-icon icon="trending_up" size="32"></ng-md-icon>
+                </md-tab>
+              </md-tabs>
+            </md-toolbar>
+            <md-card-content>
+            </md-card-content>
+         </md-card>
+
+          <md-card flex class="md-whiteframe-z2">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Localización</h2>
+            </div>
+              <img src="http://www.altosdeostende.com.ar/movil/img/ubicacion-google-maps2.gif">
+          </md-card>
+
+        </div>
+
+
+    </md-content>
+</div>

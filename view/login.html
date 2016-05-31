@@ -1,0 +1,37 @@
+<div layout-fill layout="row" layout-align="center center" >
+  <div flex="60">
+    <!--Lista de loterias-->
+      <md-card flex class="md-whiteframe-z1">
+
+        <div layout="column" layout-padding class="login">
+          <div  class="fondo">
+            <h2 style="text-align:center">INICIAR SESION</h2>
+          </div>
+          <div flex  layout-padding hide show-gt-xs>
+              <div layout-padding></div>
+              <br>
+              <br>
+            <form name="cuponForm" novalidate>
+              <md-input-container class="md-icon-float md-block">
+                  <label>Nombre de usuario</label>
+                  <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+                  <input required name="username" ng-model="cuenta.email" >
+              </md-input-container>
+              <md-input-container class="md-icon-float md-block">
+                  <md-icon><ng-md-icon icon="vpn_key"></ng-md-icon></md-icon>
+                  <label>Contraseña</label>
+                  <input required name="password" ng-model="cuenta.password">
+              </md-input-container>
+
+            </form>
+            <md-button class="md-raised md-primary" ng-click="login()">INICIAR SESION</md-button>
+
+
+          </div>
+
+
+
+        </div>
+      </md-card>
+  </div>
+</div>

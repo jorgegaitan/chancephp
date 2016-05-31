@@ -1,0 +1,71 @@
+<div layout-fill layout="row">
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <!--CONTENIDO SIDENAV-->
+    <md-toolbar class="md-tall md-hue-2">
+      <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <ng-md-icon icon="account_circle" size="64"></ng-md-icon>
+          <spam></spam>
+          <div>Firstname Lastname</div>
+          <div >{{email}}</div>
+        </div>
+    </md-toolbar>
+    <br>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="loadView('vendedores.venta')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="work" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Venta Loterias</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('vendedores.perfil')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="person" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Perfil</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('vendedores.estadisticasVentas')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="trending_up" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Estadísticas Ventas</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('vendedores.listaVentas')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="reorder" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Resumen Ventas</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('vendedores.mensajes')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="message" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Mensajes</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+</md-sidenav>
+<!--MAIN CONTENT-->
+<div layout="column" class="relative" layout-fill role="main">
+  <div ui-view layout-fill></div>
+</div>
+</div>

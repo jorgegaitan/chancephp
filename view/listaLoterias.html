@@ -1,0 +1,40 @@
+<div layout="column" layout-fill>
+  <md-button class="md-fab md-fab-bottom-right botonFlotante" aria-label="Add" ng-click="showAdd($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+  </md-button>
+      <!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar" layout="row">
+      <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+        <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">Lista Loterias</h1>
+    </md-toolbar>
+    <md-content class="md-default-theme"   flex md-scroll-y>
+        <div layout-padding></div>
+        <!--Lista de loterias-->
+        <div layout="row" layout-align="center center">
+          <div flex="80" class="containerLoterias">
+          <md-card  ng-repeat="item in loterias">
+              <md-card-title>
+                <md-card-title-text class="cabecaraCardLoterias">
+                  <span class="md-headline">{{item.nombre}}</span>
+                  <span class="md-subhead"> Proximo sorteo {{item.sorteo}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <div class="md-media-sm card-media">
+                    <img ng-src="{{item.foto}}"/>
+                  </div>
+                </md-card-title-media>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+                <md-button>Editar</md-button>
+                <md-button>Eliminar</md-button>
+              </md-card-actions>
+        </md-card>
+        </div>
+      </div>
+      <!--CONTENEDOR DE VENTA-->
+
+
+    </md-content>
+</div>

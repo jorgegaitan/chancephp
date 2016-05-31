@@ -1,0 +1,72 @@
+
+<div layout-fill layout="row">
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <!--CONTENIDO SIDENAV-->
+    <md-toolbar class="md-tall md-hue-2">
+      <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <ng-md-icon icon="account_circle" size="64"></ng-md-icon>
+          <spam></spam>
+          <div>Firstname Lastname</div>
+          <div>email@gmail.com</div>
+        </div>
+    </md-toolbar>
+    <br>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="loadView('admin.dashboard')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="dashboard" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Dashboard</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('admin.perfil')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="person" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Perfil</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('admin.listaEmpleados')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="reorder" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Lista Empleados</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('admin.chat')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="chat" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Chat</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="loadView('admin.listaLoterias')" class="menuSlideNav">
+          <md-item-content md-ink-ripple layout="row">
+            <div class="inset">
+              <ng-md-icon icon="edit" size="30"></ng-md-icon>
+            </div>
+            <div class="inset">Administrar Loterias</div>
+          </md-item-content>
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+</md-sidenav>
+<!--MAIN CONTENT-->
+<div layout="column" class="relative" layout-fill role="main">
+  <div ui-view layout-fill></div>
+</div>
+</div>

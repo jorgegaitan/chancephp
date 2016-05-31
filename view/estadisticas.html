@@ -1,0 +1,98 @@
+<div layout="column" layout-fill>
+    <!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <h1 class="md-toolbar-tools">Estadisticas de Ventas</h1>
+      </div>
+      <md-tabs md-stretch-tabs="always" class="md-primary" md-selected="data.selectedIndex">
+        <md-tab id="tab1" aria-controls="tab1-content" flex>
+            Dia
+        </md-tab>
+        <md-tab id="tab2" aria-controls="tab2-content" flex>
+            Mes
+        </md-tab>
+        <md-tab id="tab3" aria-controls="tab3-content">
+            Año
+        </md-tab>
+      </md-tabs>
+    </md-toolbar>
+    <md-content class="md-default-theme" layout-fill flex md-scroll-y>
+
+        <div class="inset"></div>
+        <ng-switch on="data.selectedIndex" class="tabpanel-container" >
+          <div role="tabpanel" id="tab1-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()"
+               md-swipe-right="previous()" layout="row" layout-align="center center">
+               <md-card flex class="md-whiteframe-z2 graficasEstadisticas">
+                 <md-toolbar class="toolbarCabecera md-whiteframe-z2 site-content-toolbar">
+                   <div class="cabeceraToolbar  md-toolbar-tools">
+                      <h2>Estadisticas por día</h2>
+                   </div>
+                   <md-tabs md-stretch-tabs="always" md-selected="data1.selectedIndex">
+                     <md-tab class="grafBarras" aria-controls="graf-barras" flex>
+                          <ng-md-icon icon="equalizer" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafLinea" aria-controls="graf-linea" flex>
+                         <ng-md-icon icon="pie_chart" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafPastel" aria-controls="graf-pastel">
+                         <ng-md-icon icon="trending_up" size="32"></ng-md-icon>
+                     </md-tab>
+                   </md-tabs>
+                 </md-toolbar>
+                 <md-card-content>
+                 </md-card-content>
+              </md-card>
+          </div>
+          <div role="tabpanel" id="tab2-content" aria-labelledby="tab2"  ng-switch-when="1" md-swipe-left="next()"
+               md-swipe-right="previous()" layout="row" layout-align="center center">
+               <md-card flex class="md-whiteframe-z2 graficasEstadisticas">
+                 <md-toolbar class="toolbarCabecera md-whiteframe-z2 site-content-toolbar">
+                   <div class="cabeceraToolbar  md-toolbar-tools">
+                      <h2>Estadisticas por mes</h2>
+                   </div>
+                   <md-tabs md-stretch-tabs="always" md-selected="data1.selectedIndex">
+                     <md-tab class="grafBarras" aria-controls="graf-barras" flex>
+                          <ng-md-icon icon="equalizer" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafLinea" aria-controls="graf-linea" flex>
+                         <ng-md-icon icon="pie_chart" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafPastel" aria-controls="graf-pastel">
+                         <ng-md-icon icon="trending_up" size="32"></ng-md-icon>
+                     </md-tab>
+                   </md-tabs>
+                 </md-toolbar>
+                 <md-card-content>
+                 </md-card-content>
+              </md-card>
+          </div>
+          <div role="tabpanel" id="tab3-content" aria-labelledby="tab3"  ng-switch-when="2" md-swipe-left="next()"
+               md-swipe-right="previous()" layout="row" layout-align="center center">
+               <md-card flex class="md-whiteframe-z2 graficasEstadisticas">
+                 <md-toolbar class="toolbarCabecera md-whiteframe-z2 site-content-toolbar">
+                   <div class="cabeceraToolbar  md-toolbar-tools">
+                      <h2>Estadisticas por año</h2>
+                   </div>
+                   <md-tabs md-stretch-tabs="always" md-selected="data1.selectedIndex">
+                     <md-tab class="grafBarras" aria-controls="graf-barras" flex>
+                          <ng-md-icon icon="equalizer" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafLinea" aria-controls="graf-linea" flex>
+                         <ng-md-icon icon="pie_chart" size="32"></ng-md-icon>
+                     </md-tab>
+                     <md-tab class="grafPastel" aria-controls="graf-pastel">
+                         <ng-md-icon icon="trending_up" size="32"></ng-md-icon>
+                     </md-tab>
+                   </md-tabs>
+                 </md-toolbar>
+                 <md-card-content>
+                 </md-card-content>
+              </md-card>
+          </div>
+        </ng-switch>
+
+    </md-content>
+</div>

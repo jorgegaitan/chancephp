@@ -1,0 +1,178 @@
+<div layout="column" layout-fill>
+    <!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <h1 class="md-toolbar-tools">Lista de Ventas</h1>
+      </div>
+      <md-tabs md-stretch-tabs="always" class="md-primary" md-selected="data.selectedIndex">
+        <md-tab id="tab1" aria-controls="tab1-content" flex>
+            Dia
+        </md-tab>
+        <md-tab id="tab2" aria-controls="tab2-content" flex>
+            Mes
+        </md-tab>
+        <md-tab id="tab3" aria-controls="tab3-content">
+            Año
+        </md-tab>
+      </md-tabs>
+    </md-toolbar>
+    <md-content class="md-default-theme" flex md-scroll-y>
+
+    <div class="inset"></div>
+        <ng-switch on="data.selectedIndex" class="tabpanel-container" >
+          <div role="tabpanel" id="tab1-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()"
+               md-swipe-right="previous()"  layout-align="center center">
+                    <md-card class="md-whiteframe-z2">
+                      <table>
+                          <tr>
+                             <th scope="col" >Fecha</th>
+                             <th scope="col">Hora</th>
+                             <th scope="col">Loteria</th>
+                             <th scope="col">Numero</th>
+                             <th scope="col">Valor</th>
+                           </tr>
+
+                         <tr>
+                             <td>17/01/1016</td>
+                             <td>7:20 AM</td>
+                             <td>Astro Luna</td>
+                             <td>3005</td>
+                             <td>4.000</td>
+                         </tr>
+                         <tr>
+                             <td>17/01/1016</td>
+                             <td>7:20 AM</td>
+                             <td>Astro Luna</td>
+                             <td>3005</td>
+                             <td>4.000</td>
+                         </tr>
+                         <tr>
+                             <td>17/01/1016</td>
+                             <td>7:20 AM</td>
+                             <td>Astro Luna</td>
+                             <td>3005</td>
+                             <td>4.000</td>
+                         </tr>
+                         <tr>
+                             <td>17/01/1016</td>
+                             <td>7:20 AM</td>
+                             <td>Astro Luna</td>
+                             <td>3005</td>
+                             <td>4.000</td>
+                         </tr>
+                         <tr>
+                             <td>17/01/1016</td>
+                             <td>7:20 AM</td>
+                             <td>Astro Luna</td>
+                             <td>3005</td>
+                             <td>4.000</td>
+                         </tr>
+                       </table>
+                     </md-card>
+          </div>
+          <div role="tabpanel" id="tab2-content" aria-labelledby="tab2"  ng-switch-when="1" md-swipe-left="next()"
+               md-swipe-right="previous()"  layout-align="center center">
+                <md-card class="md-whiteframe-z2">
+                 <table>
+                     <tr>
+                        <th scope="col" >Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Loteria</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                  </table>
+              </md-card>
+          </div>
+          <div role="tabpanel" id="tab3-content" aria-labelledby="tab3"  ng-switch-when="2" md-swipe-left="next()"
+               md-swipe-right="previous()"  layout-align="center center">
+                <md-card class="md-whiteframe-z2">
+                 <table>
+                     <tr>
+                        <th scope="col" >Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Loteria</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>17/01/1016</td>
+                        <td>7:20 AM</td>
+                        <td>Astro Luna</td>
+                        <td>3005</td>
+                        <td>4.000</td>
+                    </tr>
+                  </table>
+              </md-card>
+          </div>
+        </ng-switch>
+    </md-content>
+</div>

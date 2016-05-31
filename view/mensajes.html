@@ -1,0 +1,42 @@
+  <div layout="column" layout-fill>
+    <!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar" layout="row">
+      <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+        <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">Mensajes</h1>
+    </md-toolbar>
+    <md-content class="md-default-theme" flex md-scroll-y>
+
+        <div class="inset"></div>
+        <!--Lista de loterias-->
+          <md-card flex class="md-whiteframe-z2">
+            <md-toolbar class="toolbarCabecera md-whiteframe-z1 site-content-toolbar">
+              <div class="cabeceraToolbar  md-toolbar-tools">
+                  <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                 <h2>Administrador</h2>
+                 <span flex></span>
+                 <md-button aria-label="Actualizar">
+                   <ng-md-icon icon="sync" size="24"></ng-md-icon>
+                 </md-button>
+                 <md-button aria-label="Eliminar">
+                   <ng-md-icon icon="delete" size="24"></ng-md-icon>
+                 </md-button>
+              </div>
+            </md-toolbar>
+            <md-card-content style="height:380px">
+            </md-card-content>
+            <div class="contenedorMensaje" layout="row">
+              <md-button aria-label="Actualizar">
+                <ng-md-icon icon="insert_emoticon" size="28"></ng-md-icon>
+              </md-button>
+              <md-input-container md-no-float class="md-block" flex>
+                <input  placeholder="Mensaje">
+              </md-input-container>
+              <md-button aria-label="Actualizar">
+                <ng-md-icon icon="send" size="28"></ng-md-icon>
+              </md-button>
+            </div>
+          </md-card>
+    </md-content>
+</div>

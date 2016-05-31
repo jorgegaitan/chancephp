@@ -1,0 +1,145 @@
+<div layout="column" layout-fill><!--Toolbar-->
+    <md-toolbar class="md-whiteframe-z2 site-content-toolbar" layout="row">
+      <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+        <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">Venta de Loterias</h1>
+    </md-toolbar>
+    <md-content class="md-default-theme" flex md-scroll-y>
+        <div layout-padding></div>
+        <!--Lista de loterias-->
+          <md-card flex class="md-whiteframe-z1">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Lista de Loterias</h2>
+            </div>
+            <div layout="row" class="containerLoterias">
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Asto Luna</label>
+                <img src="view/css/imagenes/loteria1.png">
+                <h4>$ 4'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Chontico noche</label>
+                <img src="view/css/imagenes/loteria2.png">
+                <h4>$ 3'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Loteria del cauca</label>
+                <img src="view/css/imagenes/loteria3.png">
+                <h4>$ 2'500.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Astro Luna</label>
+                <img src="view/css/imagenes/loteria1.png">
+                <h4>$ 4'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Chontico noche</label>
+                <img src="view/css/imagenes/loteria2.png">
+                <h4>$ 3'000.000</h4>
+              </div>
+              <div flex  hide show-gt-md class="contenerdorLoteria" layout="column">
+                <label >Loteria del cauca</label>
+                <img src="view/css/imagenes/loteria3.png">
+                <h4>$ 2'500.000</h4>
+              </div>
+            </div>
+          </md-card>
+        <!--CONTENEDOR DE VENTA-->
+        <div class="inset ContenerdorCupon" layout="row" layout-xs="column">
+
+          <md-card flex class="md-whiteframe-z2">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Cupon Astro Luna</h2>
+            </div>
+            <md-card-content layout="row">
+              <div class="contenedorUltimoResultado" flex layout="column" layout-align="center">
+                <div>
+                  <h4>Astro Luna</h4>
+                  <img src="view/css/imagenes/loteria1.png">
+                  <h4>Ultimo Resultado</h4>
+                  <label>22/04/2016</label>
+                  <h3>2876</h3>
+                  <h4>Geminis</h4>
+                </div>
+              </div>
+              <div flex="50" ng-cloak class="inputdemoErrors">
+                  <md-content class="form contenedorFormCupon" layout="column">
+                  <form name="cuponForm" novalidate >
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Numero</label>
+                        <md-icon><ng-md-icon icon="label"></ng-md-icon></md-icon>
+                        <input required name="numCupon" ng-model="cupon.name" >
+                        <div ng-messages="cuponForm.numCupon.$error">
+                          <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <md-icon><ng-md-icon icon="label"></ng-md-icon></md-icon>
+                        <label>Serie</label>
+                        <input required name="serie" ng-model="cupon.serie">
+                        <div ng-messages="cuponForm.serie.$error">
+                          <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <md-icon><ng-md-icon icon="attach_money"></ng-md-icon></md-icon>
+                        <label>Valor Apuesta</label>
+                        <input required name="valApuesta" ng-model="cupon.valApuesta">
+                        <div ng-messages="cuponForm.valApuesta.$error">
+                          <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                  </form>
+                  <label latout-fill>Premio</label>
+                  <h4>$2'000.000</h4>
+                  <md-button class="md-raised md-primary">Añadir a la lista</md-button>
+                </md-content>
+              </div>
+            </md-card-content>
+          </md-card>
+
+          <md-card flex class="md-whiteframe-z2 containerTable">
+            <div class="cabecera md-whiteframe-z1">
+              <h2>Lista de cupones</h2>
+            </div>
+            <table>
+                  <tr>
+                     <th scope="col" >Numero</th>
+                     <th scope="col">Valor</th>
+                     <th scope="col">Loteria</th>
+                     <th scope="col">Premio</th>
+                   </tr>
+
+                 <tr>
+                     <td>2436</td>
+                     <td>2000</td>
+                     <td>Astro Luna</td>
+                     <td>105000</td>
+                 </tr>
+                 <tr>
+                   <td>4567</td>
+                   <td>2000</td>
+                   <td>Astro Luna</td>
+                   <td>105000</td>
+                 </tr>
+                 <tr>
+                   <td>7835</td>
+                   <td>1000</td>
+                   <td>Chontico noche</td>
+                   <td>76000</td>
+                 </tr>
+                 <tr>
+                   <td>2456</td>
+                   <td>3000</td>
+                   <td>loteria del cauca</td>
+                   <td>150000</td>
+                 </tr>
+               </table>
+          </md-card>
+
+        </div>
+
+
+    </md-content>
+</div>
