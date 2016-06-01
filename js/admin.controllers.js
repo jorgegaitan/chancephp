@@ -78,46 +78,8 @@ angular.module('StartedApp').controller('AdminCtrl', ['$scope', '$mdBottomSheet'
       nombre:'Astro Luna',
       sorteo:'08/05/2016'
   }];
-
- //Lista de empleados
   var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_perfil__jouez_by_crizaros-d4trv7k.jpg';
-    $scope.empleados = [{
-      foto : imagePath,
-      nombre: 'Jorge Gaitan',
-      cargo: 'cargo Empleado',
-      mensaje:'escribiendo...'
-    }, {
-      foto : imagePath,
-      nombre: 'Santiago Rueda',
-      cargo: 'cargo Empleado',
-      mensaje:'escribiendo...'
-    }, {
-      foto : imagePath,
-      nombre: 'Nombre Empleado',
-      cargo: 'Cargo Empleado',
-      mensaje:'contenido Mensaje...'
-    }, {
-      foto : imagePath,
-      nombre: 'Nombre Empleado',
-      cargo: 'Cargo Empleado',
-      mensaje:'contenido Mensaje...'
-    },{
-      foto : imagePath,
-      nombre: 'Nombre Empleado',
-      cargo: 'Cargo Empleado',
-      mensaje:'contenido Mensaje...'
-    },{
-      foto : imagePath,
-      nombre: 'Nombre Empleado',
-      cargo: 'Cargo Empleado',
-      mensaje:'contenido Mensaje...'
-    }, {
-      foto : imagePath,
-      nombre: 'Nombre Empleado',
-      cargo: 'Cargo Empleado',
-      mensaje:'contenido Mensaje...'
-    }];
-
+    $scope.empleados = UsersFactory.getUsers();
     $scope.topEmpleados = [{
       foto : imagePath,
       nombre: 'Jorge Gaitan',

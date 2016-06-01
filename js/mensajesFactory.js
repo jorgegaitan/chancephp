@@ -6,8 +6,9 @@ angular.module('StartedApp').factory('mesajesFactory',['$firebaseArray','$fireba
     var paht=id1<id2 ? id1+'/'+id2 : id2+'/'+id1;
     return $firebaseArray(userMensajesRef.child(path));
   };
-  mensajeFactory.addMessage=function (mensaje) {
-    mensajesRef.child('1094').child('1').child('1:30').set(mensaje);
+  mensajeFactory.addMessage=function (path,mensaje) {
+    console.log(path);
+    return mensajesRef.child(path).child(mensaje.hora).set(mensaje);
   };
 
   return mensajeFactory;

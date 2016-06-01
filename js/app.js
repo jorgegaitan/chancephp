@@ -10,10 +10,10 @@ app.run(['$rootScope','$state',function($rootScope,$state) {
 }]);
 
 //  MODULO DE LOGIN CON ANGULAR- ANGULARFIRE Y FIREBASE
-app.controller('LoginCtrl',['$scope', '$mdBottomSheet','$mdSidenav','$state','$firebaseObject','authFactory', function($scope, $mdBottomSheet, $mdSidenav, $state, $firebaseObject,authFactory){
+app.controller('LoginCtrl',['$scope', '$mdBottomSheet','$mdSidenav','$state','$firebaseObject','authFactory','UsersFactory', function($scope, $mdBottomSheet, $mdSidenav, $state, $firebaseObject,authFactory,UsersFactory){
 var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_perfil__jouez_by_crizaros-d4trv7k.jpg';
   $scope.cuenta={
-    email:'hola',
+    email:'',
     password:''
   };
 
@@ -21,7 +21,6 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
   $scope.login=function () {
     var result= authFactory.authUser($scope.cuenta.email,$scope.cuenta.password);
     result.then(function (authData){
-      console.log(authData);
       $state.transitionTo('vendedores.perfil');
       sessionStorage.setItem("Email",$scope.cuenta.email);
     },function (error) {
@@ -45,12 +44,41 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
 }]);
 
 app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject','mesajesFactory','UsersFactory', function($scope, $mdBottomSheet, $state, $firebaseObject,mesajesFactory,UsersFactory){
+
+  $scope.userFrom={
+    id:"",
+    nombre:"nombre1",
+    apellidos:"apellido",
+    foto:"http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_perfil__jouez_by_crizaros-d4trv7k.jpg"
+  };
   $scope.mensaje="";
   console.log('estoy en el controlador de enviar mensaje');
-    console.log(UsersFactory.getUser(10));
+  console.log(UsersFactory.getUser(10));
   $scope.send=function() {
-    console.log('estoy en enviar mensaje');
-      var result=mesajesFactory.addMessage($scope.mensaje);
+    id=1094;
+    mensaje={
+      hora:"13:10",
+      mensaje:$scope.mensaje
+    };
+    console.log("id del admin "+$scope.idsend);
+    console.log("id del usuario "+$scope.userFrom.id);
+    console.log(mensaje);
+
+    var path=id<$scope.userFrom.id ? id+'-'+$scope.userFrom.id : $scope.userFrom.id+'-'+id;
+      var result=mesajesFactory.addMessage(path,mensaje);
+      result.then(function (data) {
+        console.log("mensaje Enviado correctamente");
+        conversacion={
+          username:$scope.userFrom.nombre+" "+$scope.userFrom.apellidos,
+          ruta:path
+        };
+        UsersFactory.registrarConversacion(id,conversacion);
+      });
+  };
+
+  $scope.mostrarDetalles=function (data) {
+    console.log(sessionStorage.getItem("Email"));
+    $scope.userFrom=data;
   };
 }]);
 
