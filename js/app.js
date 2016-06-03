@@ -1,4 +1,4 @@
-var app=angular.module('StartedApp',['ngMaterial','ngMdIcons','ui.router','firebase']);
+var app=angular.module('StartedApp',['ngMaterial','ngMdIcons','ui.router','firebase','StartedApp.controllers']);
 app.run(['$rootScope','$state',function($rootScope,$state) {
 
   $rootScope.$on('$stateChangeError',function (event, toState, toParams, fromState, fromParams, error) {
@@ -22,6 +22,14 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
     var result= authFactory.authUser($scope.cuenta.email,$scope.cuenta.password);
     result.then(function (authData){
       $state.transitionTo('vendedores.perfil');
+      console.log($scope.cuenta.email);
+      new Firebase('https://tuchancephp.firebaseio.com/users')
+      .orderByChild('correo').equalTo($scope.cuenta.email).once('value', function(snap){
+        for(user in snap.val()){
+          sessionStorage.setItem("user", JSON.stringify(snap.val()[user]));
+        }
+
+      });
       sessionStorage.setItem("Email",$scope.cuenta.email);
     },function (error) {
       console.log("an Authentication error occurred ", error);
@@ -112,37 +120,8 @@ app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject'
 //
 //
 app.controller('AppCtrl', ['$scope', '$mdBottomSheet','$mdSidenav','$state','authFactory', function($scope,$mdBottomSheet, $mdSidenav,$state,authFactory){
-console.log('controlador ventas');
-  $(document).ready(function(){
-    console.log('controlador ventas1');
-    $(".SlickCarousel").slick({
-      rtl:false, // If RTL Make it true & .slick-slide{float:right;}
-      autoplay:true,
-      autoplaySpeed:5000, //  Slide Delay
-      speed:800, // Transition Speed
-      slidesToShow:6, // Number Of Carousel
-      slidesToScroll:1, // Slide To Move
-      pauseOnHover:false,
-      appendArrows:$(".Container .Head .Arrows"), // Class For Arrows Buttons
-      prevArrow:'<span class="Slick-Prev"></span>',
-      nextArrow:'<span class="Slick-Next"></span>',
-      easing:"linear",
-      responsive:[
-        {breakpoint:801,settings:{
-          slidesToShow:3,
-        }},
-        {breakpoint:641,settings:{
-          slidesToShow:3,
-        }},
-        {breakpoint:481,settings:{
-          slidesToShow:1,
-        }},
-      ],
-    });
-  });
 
   $scope.email=sessionStorage.getItem("Email");
-
   $scope.toggleSidenav = function(menuId) {
     $mdSidenav(menuId).toggle();
   };
@@ -151,14 +130,84 @@ console.log('controlador ventas');
     $state.go(viewState);
   };
 
+
+
+}]);
+
+app.controller('VentaCtrl',['$scope', '$mdBottomSheet','$state', function($scope,$mdBottomSheet,$state){
   $scope.cupon = {
   name: '',
   serie:'0956',
   valApuesta:'20000'
 };
-
+$scope.infoLoteria={
+  nombre:'Astro Luna',
+  img:'view/css/imagenes/loteria1.png',
+  ultimoResultado:'22/04/2016',
+  numero:'2876',
+  serie:'Geminis'
+};
+  var imageLoteria1="view/css/imagenes/loteria1.png";
+  var imageLoteria2="view/css/imagenes/loteria2.png";
+  var imageLoteria3="view/css/imagenes/loteria3.png";
+  $scope.loterias=[{
+      foto:imageLoteria1,
+      nombre:'Astro Luna',
+      premio:'3.000.000',
+      ultimoResultado:'23/04/2016',
+      numero:'2908',
+      serie:'Cancer'
+  },{
+      foto:imageLoteria2,
+      nombre:'Chontico Noche',
+      premio:'2.500.000',
+      ultimoResultado:'25/05/2016',
+      numero:'3245',
+      serie:'034'
+  },{
+      foto:imageLoteria3,
+      nombre:'Loteria del Cauca',
+        premio:'4.000.000',
+        ultimoResultado:'26/05/2016',
+        numero:'6745',
+        serie:'24'
+  },{
+      foto:imageLoteria1,
+      nombre:'Astro Luna',
+        premio:'3.000.000',
+        ultimoResultado:'23/04/2016',
+        numero:'2908',
+        serie:'Tauro'
+  },{
+      foto:imageLoteria2,
+      nombre:'Chontico Noche',
+        premio:'2.500.000',
+        ultimoResultado:'25/05/2016',
+        numero:'3245',
+        serie:'034'
+  },{
+      foto:imageLoteria3,
+      nombre:'Loteria del Cauca',
+      premio:'4.000.000',
+      ultimoResultado:'26/05/2016',
+      numero:'6745',
+      serie:'24'
+  },{
+      foto:imageLoteria1,
+      nombre:'Astro Luna',
+        premio:'3.000.000',
+        ultimoResultado:'23/04/2016',
+        numero:'2908',
+        serie:'Aries'
+  }];
+  $scope.mostrarDetallesLoteria=function (item) {
+    $scope.infoLoteria.nombre=item.nombre;
+    $scope.infoLoteria.img=item.foto;
+    $scope.infoLoteria.ultimoResultado=item.ultimoResultado;
+    $scope.infoLoteria.numero=item.numero;
+    $scope.infoLoteria.serie=item.serie;
+  };
 }]);
-
 //ESTADOS DE LA APLCIACION
 app.config(function ($stateProvider,$urlRouterProvider) {
   $stateProvider
@@ -176,6 +225,7 @@ app.config(function ($stateProvider,$urlRouterProvider) {
     .state('vendedores.venta', {
       url:'/venta',
       templateUrl: 'view/venta.html',
+      controller:'VentaCtrl',
       resolve:{
         "currentAuth":["authFactory",function(authFactory){
             var auth=authFactory.auth();
@@ -268,7 +318,7 @@ app.config(function ($stateProvider,$urlRouterProvider) {
 
     .state('admin.listaLoterias', {
       url:'/loterias',
-      templateUrl:'view/slider.html',
+      templateUrl:'view/listaLoterias.html',
       controller:'sliderCtrl'
     });
 

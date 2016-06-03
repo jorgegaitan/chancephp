@@ -9,103 +9,77 @@
         <div layout-padding></div>
         <!--Lista de loterias-->
           <md-card flex class="md-whiteframe-z1">
-            <div class="cabecera md-whiteframe-z1">
-              <h2>Lista de Loterias</h2>
+            <div flex style="height:300px" md-scroll-y>
+              <md-toolbar class="toolbarCabecera md-whiteframe-z1 site-content-toolbar" ng-show="!showSearch">
+                <div class=" cabeceraToolbar md-toolbar-tools">
+                  <h2>Lista Loterias</h2>
+                  <span flex></span>
+                  <md-button aria-label="Buscar" ng-click="showSearch=!showSearch">
+                    <ng-md-icon icon="search" size="26"></ng-md-icon>
+                  </md-button>
+                </div>
+              </md-toolbar>
+              <md-toolbar class="md-hue-1" ng-show="showSearch">
+                <div class=" cabeceraToolbar md-toolbar-tools">
+                  <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+                    <ng-md-icon icon="arrow_back"></ng-md-icon>
+                  </md-button>
+                  <md-input-container flex>
+                    <label>&nbsp;</label>
+                    <input ng-model="search.who" placeholder="Ingrese el nombre">
+                  </md-input-container>
+                  <md-button aria-label="Search">
+                    <ng-md-icon icon="search"></ng-md-icon>
+                  </md-button>
+                </div>
+              </md-toolbar>
+                <md-content flex  md-scroll-y  class="listaLoteriasContent" style="height: 236px;border-right: 1px solid #e9e9e9;">
+                  <md-list>
+                    <md-list-item class="md-2-line" ng-repeat="item in loterias" ng-click="mostrarDetallesLoteria(item)">
+                      <img ng-src="{{item.foto}}?{{$index}}" class="imgLoteria">
+                      <div class="md-list-item-text">
+                        <h3>{{item.nombre}}</h3>
+                        <p>{{item.premio}}</p>
+                      </div>
+                      <md-divider md-inset ng-if="!$last"></md-divider>
+                    </md-list-item>
+                  </md-list>
+                </md-content>
             </div>
-            <div layout="row" class="SlickCarousel">
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria1.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <!-- Item -->
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria2.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <!-- Item -->
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria3.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <!-- Item -->
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria1.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <!-- Item -->
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria2.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria3.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria1.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria2.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="ProductBlock">
-                  <div class="Content containerLoterias">
-                    <div flex class="contenerdorLoteria" layout="column">
-                      <label >Asto Luna</label>
-                      <img src="view/css/imagenes/loteria3.png">
-                      <h4>$ 4'000.000</h4>
-                    </div>
-                  </div>
-                </div>
+            <!--
+            <div layout="row" class="containerLoterias">
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Asto Luna</label>
+                <img src="view/css/imagenes/loteria1.png">
+                <h4>$ 4'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Chontico noche</label>
+                <img src="view/css/imagenes/loteria2.png">
+                <h4>$ 3'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Loteria del cauca</label>
+                <img src="view/css/imagenes/loteria3.png">
+                <h4>$ 2'500.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Astro Luna</label>
+                <img src="view/css/imagenes/loteria1.png">
+                <h4>$ 4'000.000</h4>
+              </div>
+              <div flex class="contenerdorLoteria" layout="column">
+                <label >Chontico noche</label>
+                <img src="view/css/imagenes/loteria2.png">
+                <h4>$ 3'000.000</h4>
+              </div>
+              <div flex  hide show-gt-md class="contenerdorLoteria" layout="column">
+                <label >Loteria del cauca</label>
+                <img src="view/css/imagenes/loteria3.png">
+                <h4>$ 2'500.000</h4>
+              </div>
             </div>
-            
+          -->
           </md-card>
         <!--CONTENEDOR DE VENTA-->
         <div class="inset ContenerdorCupon" layout="row" layout-xs="column">
@@ -117,12 +91,14 @@
             <md-card-content layout="row">
               <div class="contenedorUltimoResultado" flex layout="column" layout-align="center">
                 <div>
-                  <h4>Astro Luna</h4>
-                  <img src="view/css/imagenes/loteria1.png">
+                  <h4>{{infoLoteria.nombre}}</h4>
+                  <img src="{{infoLoteria.img}}">
                   <h4>Ultimo Resultado</h4>
-                  <label>22/04/2016</label>
-                  <h3>2876</h3>
-                  <h4>Geminis</h4>
+                  <label>{{infoLoteria.ultimoResultado}}</label>
+                  <h3>{{infoLoteria.numero}}</h3>
+                  <br>
+                  <label>Serie:</label>
+                  <h4>{{infoLoteria.serie}}</h4>
                 </div>
               </div>
               <div flex="50" ng-cloak class="inputdemoErrors">
