@@ -293,7 +293,7 @@ margin: 13px;
     }
   .contendorMensaje{
     border-right: 1px solid #e9e9e9;
-    max-height: 434px;
+    height: 434px;
     padding-left: 15px;
       background: linear-gradient(to bottom,#ede9e4 0%,#ede9e4 20%,#e5ddd5 100%);
   }

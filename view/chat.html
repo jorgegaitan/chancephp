@@ -37,7 +37,7 @@
                       <md-list-item class="md-2-line" ng-repeat="item in conversaciones" ng-click="mostrarDetalles(item)">
                         <img ng-src="{{item.foto}}?{{$index}}" class="fotoEmpleado">
                         <div class="md-list-item-text">
-                          <h3>{{item.username}}</h3>
+                          <h3>{{item.nombre}} {{item.apellidos}}</h3>
                           <p>hola</p>
                         </div>
                         <md-divider md-inset ng-if="!$last"></md-divider>
@@ -76,7 +76,7 @@
                 </div>
               </md-toolbar>
               <md-card-content md-scroll-y class="MC">
-                <md-content flex class="contendorMensaje" style="border-right: 1px solid #e9e9e9;max-height: 434px;padingle">
+                <md-content flex class="contendorMensaje">
                       <div class="mensaje">
                         <label >hola</label>
                         <label class="hora">09:10</label>
@@ -92,72 +92,6 @@
                       <div class="mensaje">
                         <label >hola</label>
                         <label class="hora">10:30</label>
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
-                      </div>
-                      <div class="mensaje">
-                        hola
                       </div>
 
                 </md-content>

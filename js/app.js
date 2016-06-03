@@ -85,7 +85,7 @@ app.controller('sliderCtrl',['$scope','$mdBottomSheet','$state',function ($scope
 app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject','mesajesFactory','UsersFactory', function($scope, $mdBottomSheet, $state, $firebaseObject,mesajesFactory,UsersFactory){
   var user = JSON.parse(sessionStorage.getItem("user"));
   $scope.conversaciones=UsersFactory.getConversaciones(user.id);
-  console.log(JSON.stringify(Firebase.ServerValue.TIMESTAMP));
+
   $scope.userFrom={
     id:"",
     nombre:"nombre1",
@@ -96,9 +96,11 @@ app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject'
   console.log('estoy en el controlador de enviar mensaje');
   console.log(UsersFactory.getUser(10));
   $scope.send=function() {
+    var a = new Date();
+    console.log(a.getHours()+":"+a.getMinutes()+":"+a.getSeconds());
     id=1094;
     mensaje={
-      hora:"13:10",
+      hora:a.getHours()+":"+a.getMinutes()+":"+a.getSeconds(),
       mensaje:$scope.mensaje
     };
     console.log("id del admin "+$scope.idsend);

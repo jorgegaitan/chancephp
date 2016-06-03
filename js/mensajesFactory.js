@@ -4,7 +4,7 @@ angular.module('StartedApp').factory('mesajesFactory',['$firebaseArray','$fireba
 
   mensajeFactory.addMessage=function (path,mensaje) {
     console.log(path);
-    return mensajesRef.child(path).child(Firebase.ServerValue.TIMESTAMP).set(mensaje);
+    return mensajesRef.child(path).child(mensaje.hora).set(mensaje);
   };
 
   return mensajeFactory;
