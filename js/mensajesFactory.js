@@ -2,13 +2,9 @@ angular.module('StartedApp').factory('mesajesFactory',['$firebaseArray','$fireba
   var mensajesRef= new Firebase('https://tuchancephp.firebaseio.com/'+'chats');
   var mensajeFactory={};
 
-  mensajeFactory.forUsers=function (id1,id2) {
-    var paht=id1<id2 ? id1+'/'+id2 : id2+'/'+id1;
-    return $firebaseArray(userMensajesRef.child(path));
-  };
   mensajeFactory.addMessage=function (path,mensaje) {
     console.log(path);
-    return mensajesRef.child(path).child(mensaje.hora).set(mensaje);
+    return mensajesRef.child(path).child(Firebase.ServerValue.TIMESTAMP).set(mensaje);
   };
 
   return mensajeFactory;

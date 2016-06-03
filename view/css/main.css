@@ -1,5 +1,5 @@
 *{
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 md-content.md-default-theme{
@@ -291,7 +291,30 @@ margin: 13px;
       height: 236px;
       border-right: 1px solid #e9e9e9;
     }
+  .contendorMensaje{
+    border-right: 1px solid #e9e9e9;
+    max-height: 434px;
+    padding-left: 15px;
+      background: linear-gradient(to bottom,#ede9e4 0%,#ede9e4 20%,#e5ddd5 100%);
+  }
+  .MC{
+    height:434px;
+    padding: 0px;
 
+  }
+  .mensaje{
+    padding: 6px 7px 8px 9px;
+    width: 90%;
+    margin: 10px auto 0px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  .hora{
+    float: right;
+    font-size: 12px;
+    margin-top: 10px;
+    color: rgba(0,0,0,.45);
+  }
 /*     RESPOSIVE:   */
 @media only screen and (max-width:960px){
   .listaLoteriasContent{
@@ -318,7 +341,10 @@ margin: 13px;
   md-card-content{
     padding: 16px 7px !important;
   }
+  .MC{
 
+    padding: 0px !important;
+  }
 }
 @media only screen and (max-width:600px){
   th, td {

@@ -3,8 +3,8 @@
     <md-content class="md-default-theme" flex md-scroll-y>
         <div layout-padding></div>
         <!--Lista de loterias-->
-          <md-card flex class="md-whiteframe-z2" layout="row" style="height:544px">
-            <div flex="40" flex-xs="100" style="height:300px" md-scroll-y>
+          <md-card flex class="md-whiteframe-z2" layout="row">
+            <div flex="40" flex-xs="100"  md-scroll-y style="heigt:543px;">
               <md-toolbar class="toolbarCabecera md-whiteframe-z1 site-content-toolbar" ng-show="!showSearch">
                 <div class=" cabeceraToolbar md-toolbar-tools">
                   <h2>Conversaciones</h2>
@@ -28,18 +28,38 @@
                   </md-button>
                 </div>
               </md-toolbar>
-                <md-content flex  md-scroll-y style="height:480px;border-right: 1px solid #e9e9e9;">
-                  <md-list>
-                    <md-list-item class="md-2-line" ng-repeat="item in empleados" ng-click="mostrarDetalles(item)">
-                      <img ng-src="{{item.foto}}?{{$index}}" class="fotoEmpleado">
-                      <div class="md-list-item-text">
-                        <h3>{{item.nombre}} {{item.apellidos}}</h3>
-                        <p>hola</p>
-                      </div>
-                      <md-divider md-inset ng-if="!$last"></md-divider>
-                    </md-list-item>
-                  </md-list>
-                </md-content>
+              <md-tabs md-stretch-tabs="always" md-selected="data.selectedIndex" style="min-height: 479px;border-right: 1px solid #e9e9e9;">
+                <md-tab  aria-controls="graf-barras" flex label="Online">
+                </md-tab>
+                <md-tab aria-controls="graf-linea" flex label="CHATS">
+                  <md-content flex style="border-right: 1px solid #e9e9e9;">
+                    <md-list>
+                      <md-list-item class="md-2-line" ng-repeat="item in conversaciones" ng-click="mostrarDetalles(item)">
+                        <img ng-src="{{item.foto}}?{{$index}}" class="fotoEmpleado">
+                        <div class="md-list-item-text">
+                          <h3>{{item.username}}</h3>
+                          <p>hola</p>
+                        </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
+                      </md-list-item>
+                    </md-list>
+                  </md-content>
+                </md-tab>
+                <md-tab aria-controls="graf-pastel" label="ALL">
+                  <md-content flex style="border-right: 1px solid #e9e9e9;">
+                    <md-list>
+                      <md-list-item class="md-2-line" ng-repeat="item in empleados" ng-click="mostrarDetalles(item)">
+                        <img ng-src="{{item.foto}}?{{$index}}" class="fotoEmpleado">
+                        <div class="md-list-item-text">
+                          <h3>{{item.nombre}} {{item.apellidos}}</h3>
+                          <p>hola</p>
+                        </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
+                      </md-list-item>
+                    </md-list>
+                  </md-content>
+                </md-tab>
+              </md-tabs>
             </div>
             <div flex hide show-gt-xs>
               <md-toolbar class="toolbarCabecera md-whiteframe-z1 site-content-toolbar">
@@ -55,7 +75,92 @@
                    </md-button>
                 </div>
               </md-toolbar>
-              <md-card-content style="height:434px" >
+              <md-card-content md-scroll-y class="MC">
+                <md-content flex class="contendorMensaje" style="border-right: 1px solid #e9e9e9;max-height: 434px;padingle">
+                      <div class="mensaje">
+                        <label >hola</label>
+                        <label class="hora">09:10</label>
+                      </div>
+                      <div class="mensaje">
+                        <label >hola</label>
+                        <label class="hora">09:11</label>
+                      </div>
+                      <div class="mensaje">
+                        <label >hola</label>
+                        <label class="hora">09:12</label>
+                      </div>
+                      <div class="mensaje">
+                        <label >hola</label>
+                        <label class="hora">10:30</label>
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+                      <div class="mensaje">
+                        hola
+                      </div>
+
+                </md-content>
               </md-card-content>
               <div class="contenedorMensaje" layout="row" layout-align="end">
                 <md-button aria-label="Actualizar">

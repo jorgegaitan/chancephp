@@ -1,26 +1,21 @@
 angular.module('StartedApp').factory('UsersFactory',['$firebaseArray','$firebaseObject',function ($firebaseArray,$firebaseObject) {
 
   var usersRef= new Firebase('https://tuchancephp.firebaseio.com/'+'users');
-  var UsersFactory={
-    getProfile:function (uid) {
-      return $firebaseObject(usersRef.child(uid));
-    },
-    getDisplayName: function () {
-      return users.$getRecord(uid).displayName;
-    }
-  };
+  var UsersFactory={};
   UsersFactory.getUsers=function () {
     return $firebaseObject(usersRef);
   };
   UsersFactory.getUser=function (id) {
     return $firebaseObject(usersRef.child(id));
   };
-  UsersFactory.registrarConversacion=function (id,username,path) {
+  UsersFactory.registrarConversacion=function (id,id2,foto,username,path) {
     conversacion={
       username:username,
-      ruta:path
+      ruta:path,
+      foto:foto
     };
-    return usersRef.child(id).child("conversaciones").child(username).set(conversacion);
+    console.log(id2);
+    return usersRef.child(id).child("conversaciones").child(id2).set(conversacion);
   };
   UsersFactory.addUser=function (usuario) {
     var user={
@@ -36,6 +31,10 @@ angular.module('StartedApp').factory('UsersFactory',['$firebaseArray','$firebase
       localizacion:'',
       bloqueado:false};
     usersRef.child(user.id).set(user);
+  };
+
+  UsersFactory.getConversaciones=function(id){
+    return $firebaseArray(usersRef.child(id).child("conversaciones"));
   };
   return UsersFactory;
 }]);

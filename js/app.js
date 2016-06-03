@@ -21,16 +21,20 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
   $scope.login=function () {
     var result= authFactory.authUser($scope.cuenta.email,$scope.cuenta.password);
     result.then(function (authData){
-      $state.transitionTo('vendedores.perfil');
-      console.log($scope.cuenta.email);
       new Firebase('https://tuchancephp.firebaseio.com/users')
       .orderByChild('correo').equalTo($scope.cuenta.email).once('value', function(snap){
         for(user in snap.val()){
-          sessionStorage.setItem("user", JSON.stringify(snap.val()[user]));
+          var usuario=snap.val()[user];
+          sessionStorage.setItem("user", JSON.stringify(usuario));
+          if(usuario.rol.toUpperCase()=="ADMINISTRATIVO"){
+              $state.transitionTo('admin.dashboard');
+          }
+            else {
+                $state.transitionTo('vendedores.perfil');
+            }
         }
 
       });
-      sessionStorage.setItem("Email",$scope.cuenta.email);
     },function (error) {
       console.log("an Authentication error occurred ", error);
     });
@@ -79,7 +83,9 @@ app.controller('sliderCtrl',['$scope','$mdBottomSheet','$state',function ($scope
   });
 }]);
 app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject','mesajesFactory','UsersFactory', function($scope, $mdBottomSheet, $state, $firebaseObject,mesajesFactory,UsersFactory){
-
+  var user = JSON.parse(sessionStorage.getItem("user"));
+  $scope.conversaciones=UsersFactory.getConversaciones(user.id);
+  console.log(JSON.stringify(Firebase.ServerValue.TIMESTAMP));
   $scope.userFrom={
     id:"",
     nombre:"nombre1",
@@ -104,8 +110,9 @@ app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject'
       result.then(function (data) {
         console.log("mensaje Enviado correctamente");
         username=$scope.userFrom.nombre+" "+$scope.userFrom.apellidos;
-        UsersFactory.registrarConversacion(id,username, path);
-        UsersFactory.registrarConversacion($scope.userFrom.id,"Jorge Gaitan",path);
+        console.log($scope.userFrom.id);
+        UsersFactory.registrarConversacion(id,$scope.userFrom.id,$scope.userFrom.foto,username, path);
+        UsersFactory.registrarConversacion($scope.userFrom.id,id,user.foto,user.nombre+" "+user.apellidos,path);
       });
   };
 

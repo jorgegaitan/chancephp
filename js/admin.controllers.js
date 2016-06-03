@@ -80,6 +80,7 @@ angular.module('StartedApp').controller('AdminCtrl', ['$scope', '$mdBottomSheet'
   }];
   var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_perfil__jouez_by_crizaros-d4trv7k.jpg';
     $scope.empleados = UsersFactory.getUsers();
+    
     $scope.topEmpleados = [{
       foto : imagePath,
       nombre: 'Jorge Gaitan',
