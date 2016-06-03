@@ -42,7 +42,34 @@ var imagePath = 'http://pre05.deviantart.net/a4f9/th/pre/i/2012/083/e/8/foto_de_
       cargo: 'Cargo Empleado'
     }];
 }]);
-
+app.controller('sliderCtrl',['$scope','$mdBottomSheet','$state',function ($scope,$mdBottomSheet,$state) {
+  $(document).ready(function(){
+    $(".SlickCarousel").slick({
+      rtl:false, // If RTL Make it true & .slick-slide{float:right;}
+      autoplay:true,
+      autoplaySpeed:2000, //  Slide Delay
+      speed:800, // Transition Speed
+      slidesToShow:6, // Number Of Carousel
+      slidesToScroll:1, // Slide To Move
+      pauseOnHover:false,
+      appendArrows:$(".Container .Head .Arrows"), // Class For Arrows Buttons
+      prevArrow:'<span class="Slick-Prev"></span>',
+      nextArrow:'<span class="Slick-Next"></span>',
+      easing:"linear",
+      responsive:[
+        {breakpoint:801,settings:{
+          slidesToShow:3,
+        }},
+        {breakpoint:641,settings:{
+          slidesToShow:3,
+        }},
+        {breakpoint:481,settings:{
+          slidesToShow:1,
+        }},
+      ],
+    });
+  });
+}]);
 app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject','mesajesFactory','UsersFactory', function($scope, $mdBottomSheet, $state, $firebaseObject,mesajesFactory,UsersFactory){
 
   $scope.userFrom={
@@ -68,17 +95,16 @@ app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject'
       var result=mesajesFactory.addMessage(path,mensaje);
       result.then(function (data) {
         console.log("mensaje Enviado correctamente");
-        conversacion={
-          username:$scope.userFrom.nombre+" "+$scope.userFrom.apellidos,
-          ruta:path
-        };
-        UsersFactory.registrarConversacion(id,conversacion);
+        username=$scope.userFrom.nombre+" "+$scope.userFrom.apellidos;
+        UsersFactory.registrarConversacion(id,username, path);
+        UsersFactory.registrarConversacion($scope.userFrom.id,"Jorge Gaitan",path);
       });
   };
 
   $scope.mostrarDetalles=function (data) {
     console.log(sessionStorage.getItem("Email"));
     $scope.userFrom=data;
+    console.log($scope.userFrom);
   };
 }]);
 
@@ -86,6 +112,35 @@ app.controller('ChatCtrl',['$scope', '$mdBottomSheet','$state','$firebaseObject'
 //
 //
 app.controller('AppCtrl', ['$scope', '$mdBottomSheet','$mdSidenav','$state','authFactory', function($scope,$mdBottomSheet, $mdSidenav,$state,authFactory){
+console.log('controlador ventas');
+  $(document).ready(function(){
+    console.log('controlador ventas1');
+    $(".SlickCarousel").slick({
+      rtl:false, // If RTL Make it true & .slick-slide{float:right;}
+      autoplay:true,
+      autoplaySpeed:5000, //  Slide Delay
+      speed:800, // Transition Speed
+      slidesToShow:6, // Number Of Carousel
+      slidesToScroll:1, // Slide To Move
+      pauseOnHover:false,
+      appendArrows:$(".Container .Head .Arrows"), // Class For Arrows Buttons
+      prevArrow:'<span class="Slick-Prev"></span>',
+      nextArrow:'<span class="Slick-Next"></span>',
+      easing:"linear",
+      responsive:[
+        {breakpoint:801,settings:{
+          slidesToShow:3,
+        }},
+        {breakpoint:641,settings:{
+          slidesToShow:3,
+        }},
+        {breakpoint:481,settings:{
+          slidesToShow:1,
+        }},
+      ],
+    });
+  });
+
   $scope.email=sessionStorage.getItem("Email");
 
   $scope.toggleSidenav = function(menuId) {
@@ -101,6 +156,7 @@ app.controller('AppCtrl', ['$scope', '$mdBottomSheet','$mdSidenav','$state','aut
   serie:'0956',
   valApuesta:'20000'
 };
+
 }]);
 
 //ESTADOS DE LA APLCIACION
@@ -212,7 +268,8 @@ app.config(function ($stateProvider,$urlRouterProvider) {
 
     .state('admin.listaLoterias', {
       url:'/loterias',
-      templateUrl:'view/listaLoterias.html'
+      templateUrl:'view/slider.html',
+      controller:'sliderCtrl'
     });
 
     $urlRouterProvider.otherwise("/login");

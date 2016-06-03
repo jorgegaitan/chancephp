@@ -15,8 +15,12 @@ angular.module('StartedApp').factory('UsersFactory',['$firebaseArray','$firebase
   UsersFactory.getUser=function (id) {
     return $firebaseObject(usersRef.child(id));
   };
-  UsersFactory.registrarConversacion=function (id,conversacion) {
-    return usersRef.child(id).child("conversaciones").child(conversacion.username).set(conversacion);
+  UsersFactory.registrarConversacion=function (id,username,path) {
+    conversacion={
+      username:username,
+      ruta:path
+    };
+    return usersRef.child(id).child("conversaciones").child(username).set(conversacion);
   };
   UsersFactory.addUser=function (usuario) {
     var user={
